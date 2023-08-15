@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produits</title>
+<header>
+  
+   
+    <h1>Gestion de Stock</h1>
+    </header>
+</head>
+<body>
+
+<form id="productForm">
+  <table>
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productTableBody">
+      <!-- Les lignes de produits seront ajoutées ici -->
+    </tbody>
+  </table>
+  
+  <button type="button" id="addProduct">Ajouter Produit</button>
+  <button type="button" id="updateProduct">Modifier Produit</button>
+  <button type="button" id="deleteProduct">Supprimer Produit</button>
+</form>
+
+<script>
+  const productForm = document.getElementById('productForm');
+  const productTableBody = document.getElementById('productTableBody');
+  const addProductButton = document.getElementById('addProduct');
+  const updateProductButton = document.getElementById('updateProduct');
+  const deleteProductButton = document.getElementById('deleteProduct');
+
+  let selectedRowIndex = -1;
+
+  function updateTable() {
+    productTableBody.innerHTML = '';
+
+    // Remplacer ce tableau par vos données
+    const products = [
+      { produit: 'Produit 1', quantite: 5, prix: 10 },
+      { produit: 'Produit 2', quantite: 3, prix: 20 },
+      { produit: 'Produit 3', quantite: 2, prix: 15 }
+    ];
+
+    products.forEach((product, index) => {
+      const row = productTableBody.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const checkboxCell = row.insertCell(3);
+
+      cell1.innerHTML = product.produit;
+      cell2.innerHTML = product.quantite;
+      cell3.innerHTML = product.prix;
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'radio';
+      checkbox.name = 'productRadio';
+      checkbox.value = index;
+      checkbox.addEventListener('change', () => {
+        selectedRowIndex = index;
+      });
+
+      checkboxCell.appendChild(checkbox);
+    });
+  }
+
+  addProductButton.addEventListener('click', () => {
+    // Implémenter l'ajout d'un produit ici
+    alert('Fonctionnalité non implémentée : Ajouter Produit');
+  });
+
+  updateProductButton.addEventListener('click', () => {
+    if (selectedRowIndex !== -1) {
+      // Implémenter la modification d'un produit ici
+      alert('Fonctionnalité non implémentée : Modifier Produit');
+    } else {
+      alert('Sélectionnez un produit à modifier.');
+    }
+  });
+
+  deleteProductButton.addEventListener('click', () => {
+    if (selectedRowIndex !== -1) {
+      // Implémenter la suppression d'un produit ici
+      alert('Fonctionnalité non implémentée : Supprimer Produit');
+    } else {
+      alert('Sélectionnez un produit à supprimer.');
+    }
+  });
+
+  // Mettre à jour la table au chargement de la page
+  updateTable();
+</script>
+</body>
+</html>
+  
+  <footer>
+    
+    
+  <p>&copy; 2023 Mon Entreprise. Tous droits réservés.</p>
+  </footer>
+  
+ 
+  </html>
